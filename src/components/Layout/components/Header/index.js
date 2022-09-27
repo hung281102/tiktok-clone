@@ -6,7 +6,6 @@ import {
     faCircleXmark,
     faEarthAsia,
     faEllipsisVertical,
-    faKey,
     faKeyboard,
     faMagnifyingGlass,
     faSignIn,
@@ -28,6 +27,21 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
 
     {
@@ -48,6 +62,14 @@ function Header() {
             setSearchResult([]);
         }, 0);
     }, []);
+    //handle logic
+    const handleMenuChange = (meneItem) => {
+        switch (meneItem.type) {
+            case 'language':
+            //handle change to language
+            default:
+        }
+    };
 
     return (
         <header className={cx('wrapper')}>
@@ -85,7 +107,7 @@ function Header() {
                     <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />} className={cx('custom-login')}>
                         Log in
                     </Button>
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
