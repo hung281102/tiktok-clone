@@ -6,7 +6,6 @@ import {
     faEarthAsia,
     faEllipsisVertical,
     faGear,
-    faMagnifyingGlass,
     faKeyboard,
     faSignIn,
     faSignOut,
@@ -18,7 +17,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import Button from '~/components/Button';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -100,7 +99,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link className={cx('logo')} to={routesConfig.home}>
+                <Link className={cx('logo')} to={config.routes.home}>
                     <img src={images.logo} alt="Tiktok" />
                 </Link>
                 {/* Search */}
