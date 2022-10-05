@@ -6,9 +6,11 @@ import PropTypes from 'prop-types';
 
 const Image = forwardRef(({ src, alt, className, fallback: customFallback = images.noImage, ...props }, ref) => {
     const [fallback, setFallback] = useState('');
+
     const handleError = () => {
         setFallback(customFallback);
     };
+
     return (
         <img
             className={classNames(styles.wrapper, className)}
